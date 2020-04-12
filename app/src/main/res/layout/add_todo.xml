@@ -10,7 +10,9 @@
         android:id="@+id/title"
         android:inputType="textAutoComplete"
         android:hint="Title"
-        android:textSize="40sp"/>
+        android:textSize="40sp"
+        android:padding="10dp"
+        android:autofillHints="true" />
 
     <EditText
         android:layout_width="match_parent"
@@ -18,6 +20,9 @@
         android:text=""
         android:id="@+id/body"
         android:inputType="textMultiLine"
-        android:textSize="30sp"/>
+        android:gravity="top"
+        android:textSize="30sp"
+        android:padding="10dp"
+        android:autofillHints="false" />
 
 </LinearLayout>

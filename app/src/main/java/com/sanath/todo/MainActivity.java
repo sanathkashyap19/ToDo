@@ -84,17 +84,29 @@ public class MainActivity extends AppCompatActivity implements InterfaceClass.on
 
             case R.id.add_entry:
 
-                choice();
+//                choice();
 
-                //startActivity(new Intent(MainActivity.this, AddTodo.class));
+                startActivity(new Intent(MainActivity.this, AddTodo.class));
 
                 break;
 
             case R.id.del:
                 dbAdapter.open();
 
-                for(int i=0; i<id.size(); i++)
-                    dbAdapter.delete(Integer.parseInt(id.get(i).toString()));
+                cursor = dbAdapter.getQueryResult("SELECT * FROM LISTS");
+
+                cursor.moveToFirst();
+
+                for (int i = 0; i < cursor.getCount(); i++) {
+
+//                    ModelInfo model = new ModelInfo(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
+                    dbAdapter.delete(Integer.parseInt(String.valueOf(cursor.getInt(0))));
+
+                    cursor.moveToNext();
+                }
+
+//                for(int i=0; i<id.size(); i++)
+//                    dbAdapter.delete(Integer.parseInt(id.get(i).toString()));
 
                 recyclerAdapter.notifyDataSetChanged();
                 genRecyclerView();

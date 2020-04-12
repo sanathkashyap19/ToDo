@@ -83,7 +83,7 @@ public class AddTodo extends AppCompatActivity{
                     db.close();
 
                     clear();
-                    startActivity(new Intent(AddTodo.this, ViewTodo.class));
+                    startActivity(new Intent(AddTodo.this, MainActivity.class));
                     finish();
 
                 }
